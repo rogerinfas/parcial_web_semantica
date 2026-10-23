@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://example.org/repositorio-universitario"
+         xmlns="http://example.org/repositorio-universitario#">
+
+<owl:Ontology rdf:about="http://example.org/repositorio-universitario"/>
+
+<owl:ObjectProperty rdf:about="#escritoPor">
+  <rdfs:domain rdf:resource="#Publicacion"/>
+  <rdfs:range rdf:resource="#Autor"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#disponibleEn">
+  <rdfs:domain rdf:resource="#Publicacion"/>
+  <rdfs:range rdf:resource="#Formato"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#tieneLicencia">
+  <rdfs:domain rdf:resource="#Publicacion"/>
+  <rdfs:range rdf:resource="#Licencia"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#titulo">
+  <rdfs:domain rdf:resource="#Publicacion"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Publicacion">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#escritoPor"/>
+      <owl:someValuesFrom rdf:resource="#Autor"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#disponibleEn"/>
+      <owl:someValuesFrom rdf:resource="#Formato"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#PublicacionDigital">
+  <rdfs:subClassOf rdf:resource="#Publicacion"/>
+  <owl:disjointWith rdf:resource="#PublicacionImpresa"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PublicacionImpresa">
+  <rdfs:subClassOf rdf:resource="#Publicacion"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PublicacionMultiautor">
+  <rdfs:subClassOf rdf:resource="#Publicacion"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Publicacion"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#escritoPor"/>
+          <owl:onClass rdf:resource="#Autor"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#PublicacionDigitalPDF">
+  <rdfs:subClassOf rdf:resource="#PublicacionDigital"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#PublicacionDigital"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#disponibleEn"/>
+          <owl:hasValue rdf:resource="#formatoPDF"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Autor">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Formato">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Licencia">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#LicenciaAbierta">
+  <rdfs:subClassOf rdf:resource="#Licencia"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#formatoPDF">
+  <rdf:type rdf:resource="#Formato"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#formatoEPUB">
+  <rdf:type rdf:resource="#Formato"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#formatoTapaBlanda">
+  <rdf:type rdf:resource="#Formato"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#autor1">
+  <rdf:type rdf:resource="#Autor"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#autor2">
+  <rdf:type rdf:resource="#Autor"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#autor3">
+  <rdf:type rdf:resource="#Autor"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#licCC_BY">
+  <rdf:type rdf:resource="#LicenciaAbierta"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pub1_TesisIA">
+  <rdf:type rdf:resource="#PublicacionDigital"/>
+  <escritoPor rdf:resource="#autor1"/>
+  <escritoPor rdf:resource="#autor2"/>
+  <disponibleEn rdf:resource="#formatoPDF"/>
+  <tieneLicencia rdf:resource="#licCC_BY"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tesis de IA aplicada</titulo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pub2_ArticuloRedes">
+  <rdf:type rdf:resource="#PublicacionDigital"/>
+  <escritoPor rdf:resource="#autor1"/>
+  <disponibleEn rdf:resource="#formatoEPUB"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Articulo de redes</titulo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pub3_LibroHistoria">
+  <rdf:type rdf:resource="#PublicacionImpresa"/>
+  <escritoPor rdf:resource="#autor3"/>
+  <disponibleEn rdf:resource="#formatoTapaBlanda"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Libro de historia regional</titulo>
+</owl:NamedIndividual>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#autor1"/>
+    <rdf:Description rdf:about="#autor2"/>
+    <rdf:Description rdf:about="#autor3"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+
+</rdf:RDF>
