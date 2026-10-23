@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5/"
+     xml:base="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-5="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#disponibleEn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#disponibleEn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Publicacion"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Formato"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#escritoPor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#escritoPor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Publicacion"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Autor"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#tieneLicencia -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#tieneLicencia">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Publicacion"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Licencia"/>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Titulo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Titulo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Publicacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Autor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Autor"/>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Formato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Formato"/>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Licencia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Licencia"/>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#LicenciaAbierta -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#LicenciaAbierta">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Licencia"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Publicacion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Publicacion"/>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionDigital -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionDigital">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Publicacion"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionImpresa"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionDigitalPDF -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionDigitalPDF">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionDigital"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#disponibleEn"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#formatoPDF"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionDigital"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionImpresa -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionImpresa">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Publicacion"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionMultiautor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionMultiautor">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Publicacion"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#escritoPor"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Autor"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Publicacion"/>
+    </owl:Class>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#autor1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#autor1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Autor"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#autor2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#autor2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Autor"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#autor3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#autor3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Autor"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#formatoEPUB -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#formatoEPUB">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Formato"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#formatoPDF -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#formatoPDF">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Formato"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#formatoTapaBlanda -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#formatoTapaBlanda">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Formato"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#licCC_BY -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#licCC_BY">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#Licencia"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#pub1_TesisIA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#pub1_TesisIA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#PublicacionDigital"/>
+        <untitled-ontology-5:disponibleEn rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#formatoPDF"/>
+        <untitled-ontology-5:escritoPor rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#autor1"/>
+        <untitled-ontology-5:escritoPor rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#autor2"/>
+        <untitled-ontology-5:tieneLicencia rdf:resource="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#licCC_BY"/>
+        <untitled-ontology-5:Titulo>Tesis de IA aplicada</untitled-ontology-5:Titulo>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#pub3_LibroHistoria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#pub3_LibroHistoria"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#autor1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#autor2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5#autor3"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->

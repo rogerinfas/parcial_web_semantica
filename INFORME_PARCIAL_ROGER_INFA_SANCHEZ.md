@@ -229,5 +229,145 @@ Si se registra `pub1 type PublicacionDigital` + `pub1 disponibleEn PDF`, sin dec
 
 ---
 
----
-BORRÉ LA 4 ANTIGUA PORQUE YA NO SIRVE 
+## Problema 4. Construcción y razonamiento en Protégé
+
+Ontología construida desde cero en Protégé. IRI: `http://www.semanticweb.org/user/ontologies/2026/9/untitled-ontology-5`. Archivo de entrega: `Roger.owl` (mismo modelo del Problema 2).
+
+### a) Modelo construido e individuos registrados
+
+Creación de las 4 subclases del caso en pestaña Entities/clasess
+
+![](capturas/p4_01.png){width=86%}}
+
+Evidencia de las subclases
+
+![](capturas/p4_02.png){width=45%}}
+
+Creación de las subclases de Publicacion, Licencia y publicaciónDigital
+para terminar de conformar la jerarquía de clases
+
+![](capturas/p4_03.png){width=86%}}
+
+Configuración de la disjunción en PublicacionDigital
+
+![](capturas/p4_04.png){width=86%}}
+
+Creación de las propiedades en pestañas object properties y data
+properties:
+
+Nos situamos en la pestaña Entities/object properties
+
+![](capturas/p4_05.png){width=86%}}
+
+Y creamos 3 propiedades donde posteriormente pasaremos a configurar el
+dominio y rango
+
+![](capturas/p4_06.png){width=86%}}
+
+Mostrando la configuración de dominio y rango
+
+![](capturas/p4_07.png){width=86%}}
+
+![](capturas/p4_08.png){width=86%}}
+
+![](capturas/p4_09.png){width=86%}}
+
+![](capturas/p4_10.png){width=86%}}
+
+Ahora en Data properties
+
+![](capturas/p4_11.png){width=82%}}
+
+Creamos la propiedad titulo configurando su dominio y rango
+
+![](capturas/p4_12.png){width=86%}}
+
+Seguidamente iremos a la pestaña Individuals by class para crear los
+individuos de apoyo y diferenciarlos
+
+![](capturas/p4_13.png){width=86%}}
+
+Iniciando con la creación de 3 individuos para la subclase Formato, la
+creación es presionando el rombo gris con un + arriba a la derecha
+
+![](capturas/p4_14.png){width=86%}}
+
+![](capturas/p4_15.png){width=86%}}
+
+Lo mismo para Licencia
+
+![](capturas/p4_16.png){width=86%}}
+
+Y para Autor con sus 3 autores y marcando en este punto una
+diferenciación
+
+![](capturas/p4_17.png){width=86%}}
+
+Pasamos a configurar las reglas lógicas de equivalencia \[Equivalent
+to\] para PublicacionMultiautor y PublicacionDigitalPDF
+
+![](capturas/p4_18.png){width=86%}}
+
+![](capturas/p4_19.png){width=86%}}
+
+Continuamos con las publicaciones de prueba
+
+pub1_TesisIA
+
+![](capturas/p4_20.png){width=86%}}
+
+Y asignamos las relaciones \[Object property assertions\] y título
+\[Data property assertions\]
+
+![](capturas/p4_21.png){width=86%}}
+
+![](capturas/p4_22.png){width=86%}}
+
+![](capturas/p4_23.png){width=86%}}
+
+![](capturas/p4_24.png){width=86%}}
+
+![](capturas/p4_25.png){width=86%}}
+
+![](capturas/p4_26.png){width=86%}} Una vez finalizado probamos la ejecución
+en el modelo Hermit
+
+![](capturas/p4_27.png){width=65%}}
+
+Inciso c
+
+![](capturas/p4_28.png){width=86%}}
+
+![](capturas/p4_29.png){width=86%}}
+
+Inciso d
+
+Comprobando el error añadiendo PublicacionImpresa
+
+![](capturas/p4_30.png){width=86%}}
+
+![](capturas/p4_31.png){width=86%}}
+
+La ventana previa declara que la ontología no es consistente
+
+Mostrando justificación lógica
+
+![](capturas/p4_32.png){width=86%}}
+
+Este cuadro explica que PublicacionDigital y PublicacionImpresa son
+disjuntas.
+
+### Lectura de resultados (inferencias esperadas y por qué se producen)
+
+Antes de ejecutar HermiT se esperaba:
+
+| # | Inferencia esperada | Condición que la permite |
+|---|---|---|
+| 1 | `pub1_TesisIA` es `PublicacionMultiautor` | Tiene 2 autores (`autor1`, `autor2`) declarados distintos (`DifferentIndividuals`) → cumple `escritoPor min 2 Autor`. |
+| 2 | `pub1_TesisIA` es `PublicacionDigitalPDF` | Es `PublicacionDigital` y `disponibleEn formatoPDF` → cumple la equivalencia con `hasValue formatoPDF`. |
+
+HermiT confirma ambas: en la vista de `pub1_TesisIA` aparecen en amarillo los tipos inferidos `PublicacionDigitalPDF` y `PublicacionMultiautor`. La inferencia 1 se produce por la clase definida con cardinalidad mínima (`min 2`) combinada con individuos distintos (sin `DifferentIndividuals`, el razonador podría fusionar `autor1` y `autor2` y no dispararía). La inferencia 2 se produce por la clase definida con `hasValue formatoPDF` sobre una publicación digital.
+
+### d) Prueba de incompatibilidad (explicación)
+
+Al asignar a un individuo dos clases declaradas disjuntas (`PublicacionDigital` y `PublicacionImpresa`), HermiT declara la ontología inconsistente (`Help for inconsistent ontologies`) y se niega a razonar hasta corregir el modelo. La justificación lógica muestra que ambas clases son disjuntas, por lo que ningún individuo puede pertenecer a ambas a la vez.
