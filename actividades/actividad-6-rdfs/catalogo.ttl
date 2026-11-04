@@ -1,0 +1,66 @@
+@prefix ex:   <http://example.org/videojuegos#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# -------------------------------------------------
+# Parte 1. Clases y jerarquias
+# -------------------------------------------------
+ex:Videojuego a rdfs:Class ;
+    rdfs:label "Videojuego" ;
+    rdfs:comment "Clase general de todos los videojuegos del catalogo." .
+
+ex:VideojuegoIndependiente a rdfs:Class ;
+    rdfs:label "Videojuego independiente" ;
+    rdfs:comment "Videojuego creado sin apoyo de una gran editora." ;
+    rdfs:subClassOf ex:Videojuego .
+
+ex:VideojuegoDeEstrategia a rdfs:Class ;
+    rdfs:label "Videojuego de estrategia" ;
+    rdfs:comment "Videojuego cuyo genero principal es la estrategia." ;
+    rdfs:subClassOf ex:Videojuego .
+
+ex:Desarrollador a rdfs:Class ;
+    rdfs:label "Desarrollador" ;
+    rdfs:comment "Persona o estudio que desarrolla videojuegos." .
+
+ex:Genero a rdfs:Class ;
+    rdfs:label "Genero" ;
+    rdfs:comment "Genero o categoria de juego (simulacion, estrategia, etc.)." .
+
+# -------------------------------------------------
+# Parte 2. Propiedades
+# -------------------------------------------------
+ex:desarrolladoPor a rdf:Property ;
+    rdfs:label "desarrollado por" ;
+    rdfs:comment "Relaciona un videojuego con su desarrollador." ;
+    rdfs:domain ex:Videojuego ;
+    rdfs:range ex:Desarrollador .
+
+ex:perteneceAGenero a rdf:Property ;
+    rdfs:label "pertenece a genero" ;
+    rdfs:comment "Relaciona un videojuego con su genero." ;
+    rdfs:domain ex:Videojuego ;
+    rdfs:range ex:Genero .
+
+# -------------------------------------------------
+# Parte 3. Individuos
+# Solo se declaran explicitamente los tipos de los
+# videojuegos. Los tipos de desarrolladores y generos
+# se dejan para inferencia por rdfs:domain / rdfs:range.
+# -------------------------------------------------
+ex:StardewValley a ex:VideojuegoIndependiente ;
+    rdfs:label "Stardew Valley" ;
+    ex:desarrolladoPor ex:ConcernedApe ;
+    ex:perteneceAGenero ex:Simulacion .
+
+ex:AgeOfEmpires a ex:VideojuegoDeEstrategia ;
+    rdfs:label "Age of Empires" ;
+    ex:desarrolladoPor ex:WorldsEdge ;
+    ex:perteneceAGenero ex:Estrategia .
+
+# Nota de nombres: se usa ASCII sin espacios ni apóstrofes
+# para IRI validos. Etiquetas legibles van en rdfs:label.
+ex:ConcernedApe rdfs:label "ConcernedApe" .
+ex:WorldsEdge rdfs:label "World's Edge" .
+ex:Simulacion rdfs:label "Simulacion" .
+ex:Estrategia rdfs:label "Estrategia" .
