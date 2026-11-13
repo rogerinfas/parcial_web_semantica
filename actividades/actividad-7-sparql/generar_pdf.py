@@ -161,5 +161,19 @@ ejercicio(
     ancho_img=12.5,
 )
 
+# Segunda evidencia del ejercicio 4: el grafo generado en Turtle
+A(PageBreak())
+A(Paragraph("Ejercicio 4. Evidencia del grafo generado (vista Response, Turtle)", h1))
+A(Paragraph("La tabla anterior solo alcanza a mostrar 10 de los 12 triples. En la pestaña "
+            "<b>Response</b> se ve el grafo completo tal como lo devuelve Fuseki, con los 6 juegos y sus dos "
+            "triples cada uno (<b>:nombre</b> y <b>:esRecomendado true</b>).", normal))
+A(Spacer(1, 6))
+A(imagen_ajustada(f"{CAP}/ej4_grafo.png", 16.5))
+A(Spacer(1, 4))
+A(Paragraph("Se cuentan 6 juegos: Celeste, Hollow Knight, Zelda BOTW, Stardew Valley, Cyberpunk 2077 y "
+            "Elden Ring, o sea 12 triples. Silksong y Undertale no aparecen porque no tienen calificación "
+            "registrada. El prefijo de la captura muestra que el grafo se armó sobre el namespace del dataset, "
+            "pero esos triples no se agregaron al dataset original.", small))
+
 doc.build(story)
 print("PDF OK:", OUT)

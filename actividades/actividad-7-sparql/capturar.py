@@ -11,6 +11,7 @@ CASOS = [
     ("ej2", "consultas/ej2_optional.rq", 1420, False),
     ("ej3", "consultas/ej3_ask.rq", 1000, True),
     ("ej4", "consultas/ej4_construct.rq", 1250, False),
+    ("ej4_grafo", "consultas/ej4_construct.rq", 1700, True),
 ]
 
 async def main():
