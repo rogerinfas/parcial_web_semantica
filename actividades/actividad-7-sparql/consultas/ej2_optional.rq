@@ -1,0 +1,9 @@
+PREFIX : <https://ejemplo.org/videojuegos#>
+
+SELECT ?nombre ?calificacion
+WHERE {
+  ?videojuego a :Videojuego ;
+              :nombre ?nombre .
+  OPTIONAL { ?videojuego :calificacion ?calificacion }
+}
+ORDER BY ?nombre

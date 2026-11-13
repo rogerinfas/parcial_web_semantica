@@ -1,0 +1,138 @@
+@prefix : <https://ejemplo.org/videojuegos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ejemplo.org/videojuegos> a owl:Ontology ;
+    rdfs:label "Ontología de videojuegos para prácticas SPARQL"@es .
+
+### Clases
+:Videojuego a owl:Class .
+:Desarrollador a owl:Class .
+:Genero a owl:Class .
+:Plataforma a owl:Class .
+
+### Propiedades de objeto
+:tieneDesarrollador a owl:ObjectProperty ;
+    rdfs:domain :Videojuego ;
+    rdfs:range :Desarrollador .
+
+:tieneGenero a owl:ObjectProperty ;
+    rdfs:domain :Videojuego ;
+    rdfs:range :Genero .
+
+:disponibleEn a owl:ObjectProperty ;
+    rdfs:domain :Videojuego ;
+    rdfs:range :Plataforma .
+
+### Propiedades de datos
+:nombre a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+:anioLanzamiento a owl:DatatypeProperty ;
+    rdfs:domain :Videojuego ;
+    rdfs:range xsd:integer .
+
+:precio a owl:DatatypeProperty ;
+    rdfs:domain :Videojuego ;
+    rdfs:range xsd:decimal .
+
+:calificacion a owl:DatatypeProperty ;
+    rdfs:domain :Videojuego ;
+    rdfs:range xsd:decimal .
+
+### Desarrolladores
+:TeamCherry a :Desarrollador ; :nombre "Team Cherry" .
+:Nintendo a :Desarrollador ; :nombre "Nintendo" .
+:ConcernedApe a :Desarrollador ; :nombre "ConcernedApe" .
+:MaddyMakesGames a :Desarrollador ; :nombre "Maddy Makes Games" .
+:FromSoftware a :Desarrollador ; :nombre "FromSoftware" .
+:CDProjektRed a :Desarrollador ; :nombre "CD Projekt Red" .
+
+### Géneros
+:Metroidvania a :Genero ; :nombre "Metroidvania" .
+:Aventura a :Genero ; :nombre "Aventura" .
+:Simulacion a :Genero ; :nombre "Simulación" .
+:Plataformas a :Genero ; :nombre "Plataformas" .
+:RPG a :Genero ; :nombre "RPG" .
+:AccionRPG a :Genero ; :nombre "Acción RPG" .
+
+### Plataformas
+:PC a :Plataforma ; :nombre "PC" .
+:Switch a :Plataforma ; :nombre "Nintendo Switch" .
+:PlayStation5 a :Plataforma ; :nombre "PlayStation 5" .
+:XboxSeries a :Plataforma ; :nombre "Xbox Series X/S" .
+
+### Videojuegos
+:HollowKnight a :Videojuego ;
+    :nombre "Hollow Knight" ;
+    :anioLanzamiento 2017 ;
+    :precio 15.99 ;
+    :calificacion 9.0 ;
+    :tieneDesarrollador :TeamCherry ;
+    :tieneGenero :Metroidvania ;
+    :disponibleEn :PC, :Switch .
+
+:Silksong a :Videojuego ;
+    :nombre "Hollow Knight: Silksong" ;
+    :tieneDesarrollador :TeamCherry ;
+    :tieneGenero :Metroidvania ;
+    :disponibleEn :PC, :Switch .
+
+:ZeldaBOTW a :Videojuego ;
+    :nombre "The Legend of Zelda: Breath of the Wild" ;
+    :anioLanzamiento 2017 ;
+    :precio 59.99 ;
+    :calificacion 9.7 ;
+    :tieneDesarrollador :Nintendo ;
+    :tieneGenero :Aventura ;
+    :disponibleEn :Switch .
+
+:StardewValley a :Videojuego ;
+    :nombre "Stardew Valley" ;
+    :anioLanzamiento 2016 ;
+    :precio 14.99 ;
+    :calificacion 8.9 ;
+    :tieneDesarrollador :ConcernedApe ;
+    :tieneGenero :Simulacion ;
+    :disponibleEn :PC, :Switch .
+
+:Celeste a :Videojuego ;
+    :nombre "Celeste" ;
+    :anioLanzamiento 2018 ;
+    :precio 19.99 ;
+    :calificacion 9.2 ;
+    :tieneDesarrollador :MaddyMakesGames ;
+    :tieneGenero :Plataformas ;
+    :disponibleEn :PC, :Switch .
+
+:EldenRing a :Videojuego ;
+    :nombre "Elden Ring" ;
+    :anioLanzamiento 2022 ;
+    :precio 59.99 ;
+    :calificacion 9.5 ;
+    :tieneDesarrollador :FromSoftware ;
+    :tieneGenero :AccionRPG ;
+    :disponibleEn :PC, :PlayStation5, :XboxSeries .
+
+:Cyberpunk2077 a :Videojuego ;
+    :nombre "Cyberpunk 2077" ;
+    :anioLanzamiento 2020 ;
+    :precio 49.99 ;
+    :calificacion 8.5 ;
+    :tieneDesarrollador :CDProjektRed ;
+    :tieneGenero :RPG ;
+    :disponibleEn :PC, :PlayStation5, :XboxSeries .
+
+:Undertale a :Videojuego ;
+    :nombre "Undertale" ;
+    :anioLanzamiento 2015 ;
+    :precio 9.99 ;
+    :tieneDesarrollador :TobyFox ;
+    :tieneGenero :RPG ;
+    :disponibleEn :PC .
+
+### Individuo adicional intencionalmente sin datos completos
+:TobyFox a :Desarrollador ;
+    :nombre "Toby Fox" .

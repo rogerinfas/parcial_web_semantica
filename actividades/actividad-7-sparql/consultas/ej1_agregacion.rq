@@ -1,0 +1,11 @@
+PREFIX : <https://ejemplo.org/videojuegos#>
+
+SELECT ?desarrollador ?nombreDev (COUNT(?videojuego) AS ?totalVideojuegos)
+WHERE {
+  ?videojuego a :Videojuego ;
+              :tieneDesarrollador ?desarrollador .
+  ?desarrollador :nombre ?nombreDev .
+}
+GROUP BY ?desarrollador ?nombreDev
+HAVING (COUNT(?videojuego) >= 2)
+ORDER BY DESC(?totalVideojuegos)

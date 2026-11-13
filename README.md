@@ -17,10 +17,18 @@ Carpeta del curso. El parcial y las tareas van separados.
 │   ├── indicaciones_clasroom.md
 │   └── build_ontology.py, verificar_inferencias.py, demo_inconsistencia.py, run_evidencias.sh
 └── actividades/
-    └── actividad-6-rdfs/        # Actividad 6 — RDFS catálogo videojuegos
-        ├── catalogo.ttl
-        ├── ACTIVIDAD_6_RDFS_ROGER_INFA_SANCHEZ.pdf
-        └── generar_pdf.py
+    ├── actividad-6-rdfs/        # Actividad 6 — RDFS catálogo videojuegos
+    │   ├── catalogo.ttl
+    │   ├── ACTIVIDAD_6_RDFS_ROGER_INFA_SANCHEZ.pdf
+    │   └── generar_pdf.py
+    └── actividad-7-sparql/      # Actividad 7 — SPARQL avanzado
+        ├── dataset.ttl
+        ├── consultas/           # ej1..ej4 (.rq)
+        ├── capturas/            # evidencias de Fuseki
+        ├── ACTIVIDAD_7_SPARQL_ROGER_INFA_SANCHEZ.pdf
+        ├── capturar.py
+        ├── generar_pdf.py
+        └── run_fuseki.sh
 ```
 
 ## Actividades

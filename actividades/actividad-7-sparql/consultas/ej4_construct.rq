@@ -1,0 +1,12 @@
+PREFIX : <https://ejemplo.org/videojuegos#>
+
+CONSTRUCT {
+  ?videojuego :nombre ?nombre ;
+              :esRecomendado true .
+}
+WHERE {
+  ?videojuego a :Videojuego ;
+              :nombre ?nombre ;
+              :calificacion ?calificacion .
+  FILTER (?calificacion >= 8)
+}

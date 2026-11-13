@@ -1,0 +1,7 @@
+PREFIX : <https://ejemplo.org/videojuegos#>
+
+ASK {
+  ?videojuego a :Videojuego ;
+              :anioLanzamiento ?anio .
+  FILTER (?anio > 2020)
+}
